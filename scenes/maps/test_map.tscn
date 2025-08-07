@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb8v3wgxvmxs3"]
+
+[ext_resource type="PackedScene" uid="uid://bx4n7kp4bghuy" path="res://scenes/entities/player/player.tscn" id="1_ybdod"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s55i"]
+albedo_color = Color(0.0429055, 0.903708, 1.15514e-06, 1)
+
+[node name="TestMap" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_ybdod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.594, 8.117)
+
+[node name="map" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="map"]
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_2s55i")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.51304, 0.40793, -5.48263)
+polygon = PackedVector2Array(1.66426, 1.42671, 16, 6, 16, 0, 1.035, -1.485, -1.10574, 2.97207)
+depth = 9.1
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 0.617126, 2.6501)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 1.29506, 1.10675)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 2.00017, -0.210759)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 2.73043, -1.75887)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 3.57194, -3.30064)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 4.388, -4.4238)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4391, 5.38909, -6.32007)
+size = Vector3(6.55481, 0.240234, 4.36328)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7081, 6.31417, -9.99557)
+size = Vector3(6.55481, 0.240234, 9.09375)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.777576, 0.600741, -0.185704, -0.584309, 0.799444, 0.139547, 0.232291, 0, 0.972646, 18.3668, 16.3488, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.648492, 0.483119, -0.588264, 0, 0.772789, 0.634663, 0.761221, -0.411574, 0.501148, -10.412, 10.631, 8.7484)

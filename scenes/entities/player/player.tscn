@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://bx4n7kp4bghuy"]
+
+[ext_resource type="Script" uid="uid://hc168fvhcf1r" path="res://scripts/entities/player/playerController.gd" id="1_1hmtu"]
+[ext_resource type="Script" uid="uid://81gdiipkjx0e" path="res://scripts/entities/player/playerMovement.gd" id="2_nh4ur"]
+[ext_resource type="Script" uid="uid://ch03v7oew1udi" path="res://scripts/entities/player/playerJump.gd" id="3_bjvvg"]
+[ext_resource type="Script" uid="uid://cga43tyrx4fpe" path="res://scripts/entities/player/playerSlide.gd" id="4_8akj5"]
+
+[sub_resource type="Resource" id="Resource_bj7e2"]
+script = ExtResource("2_nh4ur")
+walk_speed = 3.0
+run_speed = 6.0
+crouch_speed = 1.5
+slide_speed = 8.0
+acceleration = 10.0
+deceleration = 15.0
+air_acceleration = 5.0
+gravity_multiplier = 1.0
+fall_gravity_multiplier = 1.5
+max_fall_speed = 20.0
+metadata/_custom_type_script = "uid://81gdiipkjx0e"
+
+[sub_resource type="Resource" id="Resource_1murt"]
+script = ExtResource("3_bjvvg")
+jump_velocity = 8.0
+double_jump_velocity = 6.0
+max_jumps = 2
+coyote_time = 0.1
+jump_buffer_time = 0.2
+metadata/_custom_type_script = "uid://ch03v7oew1udi"
+
+[sub_resource type="Resource" id="Resource_5sj0x"]
+script = ExtResource("4_8akj5")
+slide_duration = 1.0
+slide_friction = 5.0
+min_slide_speed = 2.0
+slide_angle_threshold = 30.0
+metadata/_custom_type_script = "uid://cga43tyrx4fpe"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_635qg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hmtu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_58kc7"]
+material = SubResource("StandardMaterial3D_1hmtu")
+
+[sub_resource type="BoxMesh" id="BoxMesh_1hmtu"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_1hmtu")
+movement_settings = SubResource("Resource_bj7e2")
+jump_settings = SubResource("Resource_1murt")
+slide_settings = SubResource("Resource_5sj0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_635qg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_58kc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.75, 0, 0, 0, 0.355, 0, 0, 0, 0.75, 0, 0.433317, -0.41761)
+mesh = SubResource("BoxMesh_1hmtu")
