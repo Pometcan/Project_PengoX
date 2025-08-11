@@ -17,6 +17,7 @@ air_acceleration = 5.0
 gravity_multiplier = 1.0
 fall_gravity_multiplier = 1.5
 max_fall_speed = 20.0
+rotation_speed = 10.0
 metadata/_custom_type_script = "uid://81gdiipkjx0e"
 
 [sub_resource type="Resource" id="Resource_1murt"]
@@ -58,5 +59,5 @@ shape = SubResource("CapsuleShape3D_635qg")
 mesh = SubResource("CapsuleMesh_58kc7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(0.75, 0, 0, 0, 0.355, 0, 0, 0, 0.75, 0, 0.433317, -0.41761)
+transform = Transform3D(0.75, 0, 0, 0, 0.355, 0, 0, 0, 0.75, 0, 0.433317, 0.418096)
 mesh = SubResource("BoxMesh_1hmtu")

@@ -15,6 +15,9 @@ class_name PlayerMovement
 @export var fall_gravity_multiplier: float = 1.5
 @export var max_fall_speed: float = 20.0
 
+# Rotation Settings
+@export var rotation_speed: float = 10.0 
+
 var player: CharacterBody3D
 var input_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector3 = Vector3.ZERO
@@ -26,13 +29,18 @@ func _init(player_ref: CharacterBody3D):
 
 func get_input():
 	input_direction = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	movement_direction = (player.transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
+	movement_direction = Vector3(input_direction.x, 0, input_direction.y).normalized()
 
 func set_target_velocity(speed: float):
 	current_speed = speed
 	target_velocity = movement_direction * current_speed
 
 func apply_movement(delta: float):
+	# Karakter rotasyonu (hareket yönüne doğru döndür)
+	if movement_direction != Vector3.ZERO and player.is_on_floor():
+		var target_rotation = atan2(movement_direction.x, movement_direction.z)
+		player.rotation.y = lerp_angle(player.rotation.y, target_rotation, rotation_speed * delta)
+	
 	# Apply gravity
 	if not player.is_on_floor():
 		var gravity_mult = fall_gravity_multiplier if player.velocity.y < 0 else gravity_multiplier
