@@ -31,10 +31,18 @@ metadata/_custom_type_script = "uid://ch03v7oew1udi"
 
 [sub_resource type="Resource" id="Resource_5sj0x"]
 script = ExtResource("4_8akj5")
-slide_duration = 1.0
-slide_friction = 5.0
-min_slide_speed = 2.0
-slide_angle_threshold = 30.0
+base_slide_duration = 2.0
+min_slide_speed = 3.0
+max_slide_speed = 15.0
+slide_acceleration = 12.0
+slide_deceleration = 3.0
+uphill_deceleration = 12.0
+slide_control_strength = 2.0
+slide_curve_factor = 0.3
+slope_detection_distance = 1.0
+momentum_preservation = 0.8
+min_slope_angle = 5.0
+slope_slide_threshold = 0.15
 metadata/_custom_type_script = "uid://cga43tyrx4fpe"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_635qg"]
